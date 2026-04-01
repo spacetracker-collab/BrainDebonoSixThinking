@@ -1,7 +1,7 @@
 
 import torch
-from models.debono_net import DeBonoNet
-from data.dataset import generate
+from debono_net import DeBonoNet
+from dataset import generate
 
 model = DeBonoNet(16)
 X, y = generate()
