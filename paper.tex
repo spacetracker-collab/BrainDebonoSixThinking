@@ -1,0 +1,32 @@
+
+\documentclass{article}
+\usepackage{amsmath}
+\title{DeBonoNet: A Multi-Agent Cognitive Architecture with GNN Communication}
+\author{ }
+\begin{document}
+\maketitle
+
+\section{Introduction}
+We model Edward de Bono's Six Thinking Hats as modular neural networks.
+
+\section{Architecture}
+Each hat is a function:
+\[
+z = \sum_i \alpha_i h_i(x)
+\]
+
+\section{Multi-Agent Extension}
+Agents communicate via a Graph Neural Network:
+\[
+h_i^{t+1} = \sigma\left( \sum_j A_{ij} W h_j^t \right)
+\]
+
+\section{Reinforcement Learning}
+Reward:
+\[
+R = \mathbb{E}[\sigma(output)]
+\]
+
+\section{Conclusion}
+This system enables emergent collective intelligence.
+\end{document}
