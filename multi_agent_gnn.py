@@ -13,7 +13,11 @@ states = torch.stack([torch.randn(dim) for _ in range(num_agents)])
 adj = torch.ones(num_agents, num_agents) / num_agents
 
 for _ in range(3):
-    states = torch.stack([agent(s)[0].squeeze() for agent, s in zip(agents, states)])
+    new_states = []
+    for agent, s in zip(agents, states):
+        out, _ = agent(s)
+        new_states.append(out.squeeze(0))
+    states = torch.stack(new_states)
     states = gnn(states, adj)
 
 print("Final states:", states)

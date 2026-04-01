@@ -1,12 +1,14 @@
 
-# DeBonoNet Flat Structure (Easy GitHub Upload)
+# DeBonoNet FINAL CLEAN BUILD
 
-## Install
-pip install torch
+## Features
+- No shape errors
+- Works with 1D and batch inputs
+- Flat structure (GitHub friendly)
+- Multi-agent GNN system
 
 ## Run
+pip install torch
+
 python train.py
 python multi_agent_gnn.py
-
-## Structure
-All files are in root directory (no folders) for easy GitHub upload.

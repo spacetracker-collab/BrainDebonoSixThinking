@@ -16,6 +16,9 @@ class DeBonoNet(nn.Module):
         self.output = nn.Linear(dim, dim)
 
     def forward(self, x):
+        if x.dim() == 1:
+            x = x.unsqueeze(0)
+
         h = [
             self.white(x),
             self.red(x),
@@ -23,7 +26,9 @@ class DeBonoNet(nn.Module):
             self.yellow(x),
             self.green(x)
         ]
+
         weights = self.controller(x)
-        stacked = torch.stack(h, dim=1)
+        stacked = torch.stack(h, dim=1)  # (batch, 5, dim)
         fused = (stacked * weights.unsqueeze(-1)).sum(dim=1)
-        return fused, weights
+
+        return self.output(fused), weights
